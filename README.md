@@ -1,2 +1,2 @@
 # omnistack6-backend
-Projeto desenvolvido na semana OmniStack6.0 da RocketSeat
+Projeto NodeJS baseado no Omnistack 6.0 da Rocketseat
