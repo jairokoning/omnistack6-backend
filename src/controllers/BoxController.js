@@ -1,4 +1,5 @@
 const Box =  require('../models/Box')
+const Boxes =  require('../models/Boxes')
 const mongoose = require('mongoose')
 
 class BoxController{
@@ -23,6 +24,34 @@ class BoxController{
            console.log(error) 
         }
     }
+
+    async listBoxes(req, res){
+        try {
+
+            const boxes = await Boxes.find().populate({
+                path: 'boxes',
+                options:  {sort: {createdAt: -1}}
+            })
+            return res.json(boxes)
+                    
+        } catch (error) {
+           console.log(error) 
+        }
+    } 
+    
+    async listAllBoxes(req, res){
+        try {
+
+            const boxes = await Box.find().populate({
+                path: 'boxes',
+                options:  {sort: {createdAt: -1}}
+            })
+            return res.json(boxes)
+                    
+        } catch (error) {
+           console.log(error) 
+        }
+    }     
 
 }
 
